@@ -10,14 +10,14 @@ const {
 const slideWidth = 305
 const slidesGap = 20
 
-const sliderElement = ref(null) // ref to '.slider__track'
+const sliderElement = ref(null)
 
-const slideIndex = ref(0) // первый слайд на странице, с него отсчитываем страници. Меняется при переключении страницы
-const slidesTotal = slides.length  // всего слайдов
-const slidesPerPage = ref(null)  // количество слайдов на странице. Пересчитывается при ресайзе
-const currentPage = ref(1)  // номер текущей страницы. Пересчитывается при ресайзе
-const slidesOnPage = ref([])  // массив слайдов на текущей страницы. Пересчитывается при ресайзе
-const pagesTotal = ref(1)  // всего страниц. Пересчитывается при ресайзе
+const slideIndex = ref(0)
+const slidesTotal = slides.length
+const slidesPerPage = ref(null)
+const currentPage = ref(1)
+const slidesOnPage = ref([])
+const pagesTotal = ref(1)
 
 
 function prevPage() {
@@ -78,7 +78,6 @@ function additionalCurrency(item) {
     item.priceRange.additionalCurrency.end.toLocaleString() + ' ' +
     item.priceRange.additionalCurrency.sign
 }
-
 
 onMounted(() => {
   resizeObserver.observe(sliderElement.value)

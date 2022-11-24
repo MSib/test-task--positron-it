@@ -1,4 +1,3 @@
-// склонение существительных после числительных
 function numDecline(num,nominative,genitiveSingular,genitivePlural){
 	if(num > 10 && (Math.round((num % 100) / 10)) == 1){
 		return genitivePlural;
