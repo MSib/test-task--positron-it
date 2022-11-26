@@ -6,8 +6,12 @@ const { links } = defineProps(['links'])
   <div v-if="links?.length" class="breadcrumbs">
     <ul class="breadcrumbs__list">
       <li v-for="(link, index) in links" :key="index" class="breadcrumbs__item">
-        <a :href="link.url" :class="{ 'breadcrumbs__link--inactive': !link.url }" class="breadcrumbs__link">{{ link.title
-        }}</a>
+        <a
+          :href="link.url"
+          :class="{ 'breadcrumbs__link--inactive': !link.url }"
+          class="breadcrumbs__link"
+          >{{ link.title }}</a
+        >
       </li>
     </ul>
   </div>

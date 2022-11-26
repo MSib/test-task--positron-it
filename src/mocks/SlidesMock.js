@@ -19,7 +19,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -28,7 +28,8 @@ export default {
     {
       id: 2,
       title: 'G2H',
-      description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+      description:
+        'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
       url: '#',
       image: {
         url: '/photos/exhaust-device-1.png',
@@ -43,7 +44,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -67,7 +68,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -91,7 +92,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -115,7 +116,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -124,7 +125,8 @@ export default {
     {
       id: 6,
       title: 'G2H',
-      description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+      description:
+        'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
       url: '#',
       image: {
         url: '/photos/exhaust-device-1.png',
@@ -139,7 +141,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -163,7 +165,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -187,7 +189,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -211,7 +213,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -220,7 +222,8 @@ export default {
     {
       id: 10,
       title: 'G2H',
-      description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+      description:
+        'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
       url: '#',
       image: {
         url: '/photos/exhaust-device-1.png',
@@ -235,7 +238,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -259,7 +262,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -283,7 +286,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -307,7 +310,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -316,7 +319,8 @@ export default {
     {
       id: 14,
       title: 'G2H',
-      description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+      description:
+        'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
       url: '#',
       image: {
         url: '/photos/exhaust-device-1.png',
@@ -331,7 +335,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -355,7 +359,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -379,7 +383,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -403,7 +407,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -412,7 +416,8 @@ export default {
     {
       id: 18,
       title: 'G2H',
-      description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+      description:
+        'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
       url: '#',
       image: {
         url: '/photos/exhaust-device-1.png',
@@ -427,7 +432,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -451,7 +456,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -475,7 +480,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -499,7 +504,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -508,7 +513,8 @@ export default {
     {
       id: 22,
       title: 'G2H',
-      description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+      description:
+        'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
       url: '#',
       image: {
         url: '/photos/exhaust-device-1.png',
@@ -523,7 +529,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -547,7 +553,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },
@@ -571,7 +577,7 @@ export default {
           sign: '₽',
         },
         additionalCurrency: {
-          start: 77.60,
+          start: 77.6,
           end: 643.86,
           sign: '€',
         },

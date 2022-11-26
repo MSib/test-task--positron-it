@@ -2,10 +2,7 @@
 import { ref, onMounted } from 'vue'
 
 const { data } = defineProps(['data'])
-const {
-  title,
-  slides,
-} = data
+const { title, slides } = data
 
 const slideWidth = 305
 const slidesGap = 20
@@ -18,7 +15,6 @@ const slidesPerPage = ref(null)
 const currentPage = ref(1)
 const slidesOnPage = ref([])
 const pagesTotal = ref(1)
-
 
 function prevPage() {
   const difference = slideIndex.value - slidesPerPage.value
@@ -37,13 +33,19 @@ function nextPage() {
 function restructure(newSlidesPerPage = slidesPerPage.value) {
   slidesPerPage.value = newSlidesPerPage
   pagesTotal.value = Math.ceil(slidesTotal / newSlidesPerPage)
-  const floorSlideIndex = slideIndex.value - (slideIndex.value % slidesPerPage.value)
+  const floorSlideIndex =
+    slideIndex.value - (slideIndex.value % slidesPerPage.value)
   currentPage.value = Math.ceil(floorSlideIndex / slidesPerPage.value) + 1
-  slidesOnPage.value = slides.slice(floorSlideIndex, floorSlideIndex + slidesPerPage.value);
+  slidesOnPage.value = slides.slice(
+    floorSlideIndex,
+    floorSlideIndex + slidesPerPage.value
+  )
 }
 
 function onSliderResize(trackWidth) {
-  let newSlidesPerPage = Math.floor((trackWidth + slidesGap) / (slideWidth + slidesGap))
+  let newSlidesPerPage = Math.floor(
+    (trackWidth + slidesGap) / (slideWidth + slidesGap)
+  )
   newSlidesPerPage = newSlidesPerPage > 0 ? newSlidesPerPage : 1
   if (slidesPerPage.value !== newSlidesPerPage) {
     restructure(newSlidesPerPage)
@@ -54,29 +56,39 @@ const resizeObserver = new ResizeObserver((entries) => {
   for (const entry of entries) {
     let width
     if (entry.contentBoxSize) {
-      const contentBoxSize = Array.isArray(entry.contentBoxSize) ? entry.contentBoxSize[0] : entry.contentBoxSize;
+      const contentBoxSize = Array.isArray(entry.contentBoxSize)
+        ? entry.contentBoxSize[0]
+        : entry.contentBoxSize
       width = contentBoxSize.inlineSize
     } else {
       width = entry.contentRect.width
     }
     onSliderResize(width)
   }
-});
+})
 
 function baseCurrency(item) {
-  return item.priceRange.baseCurrency.start.toLocaleString() + ' ' +
+  return (
+    item.priceRange.baseCurrency.start.toLocaleString() +
+    ' ' +
     item.priceRange.baseCurrency.sign +
     ' – ' +
-    item.priceRange.baseCurrency.end.toLocaleString() + ' ' + item.priceRange.baseCurrency.sign
+    item.priceRange.baseCurrency.end.toLocaleString() +
+    ' ' +
+    item.priceRange.baseCurrency.sign
+  )
 }
 
 function additionalCurrency(item) {
-  return item.priceRange.additionalCurrency.start.toLocaleString()
-    + ' ' +
+  return (
+    item.priceRange.additionalCurrency.start.toLocaleString() +
+    ' ' +
     item.priceRange.additionalCurrency.sign +
     ' – ' +
-    item.priceRange.additionalCurrency.end.toLocaleString() + ' ' +
+    item.priceRange.additionalCurrency.end.toLocaleString() +
+    ' ' +
     item.priceRange.additionalCurrency.sign
+  )
 }
 
 onMounted(() => {
@@ -87,29 +99,76 @@ onMounted(() => {
 <template>
   <section class="slider">
     <h2 class="slider__title">{{ title }}</h2>
-    <div class="slider__navigation navigationSlider" aria-label="Навигация по слайдам">
-      <button class="navigationSlider__perv" @click="prevPage()" aria-label="Предыдущая страница слайдов" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 10 20" fill="none">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="m9 19-8-9 8-9" />
+    <div
+      class="slider__navigation navigationSlider"
+      aria-label="Навигация по слайдам"
+    >
+      <button
+        class="navigationSlider__perv"
+        @click="prevPage()"
+        aria-label="Предыдущая страница слайдов"
+        type="button"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="10"
+          height="20"
+          viewBox="0 0 10 20"
+          fill="none"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m9 19-8-9 8-9"
+          />
         </svg>
       </button>
       <p class="navigationSlider__pages">
-        <span class="navigationSlider__current">{{ currentPage }}</span> / {{ pagesTotal }}
+        <span class="navigationSlider__current">{{ currentPage }}</span> /
+        {{ pagesTotal }}
       </p>
-      <button class="navigationSlider__next" @click="nextPage()" aria-label="Следующая страница слайдов" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="20" viewBox="0 0 10 20" fill="none">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="m1 1 8 9-8 9" />
+      <button
+        class="navigationSlider__next"
+        @click="nextPage()"
+        aria-label="Следующая страница слайдов"
+        type="button"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="10"
+          height="20"
+          viewBox="0 0 10 20"
+          fill="none"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m1 1 8 9-8 9"
+          />
         </svg>
       </button>
     </div>
 
     <div class="slider__track" ref="sliderElement">
-      <article v-for="(item, index) in slidesOnPage" :key="index" class="slider__slide slide" :id="index">
+      <article
+        v-for="(item, index) in slidesOnPage"
+        :key="index"
+        class="slider__slide slide"
+        :id="index"
+      >
         <figure class="slide__figure">
-          <img :src="item.image.url" :alt="item.image.alt" :width="item.image.width" :height="item.image.height"
-            class="slide__image" loading="lazy">
+          <img
+            :src="item.image.url"
+            :alt="item.image.alt"
+            :width="item.image.width"
+            :height="item.image.height"
+            class="slide__image"
+            loading="lazy"
+          />
         </figure>
         <h3 class="slide__title">{{ item.title }} {{ item.id }}</h3>
         <p class="slide__description">{{ item.description }}</p>
@@ -145,7 +204,6 @@ onMounted(() => {
   grid-auto-flow: column;
   justify-content: center;
   gap: 20px;
-
 }
 
 /* .slider__slide {} */
@@ -173,8 +231,7 @@ onMounted(() => {
 .navigationSlider__perv:focus-visible,
 .navigationSlider__next:hover,
 .navigationSlider__next:focus-visible {
-  box-shadow:
-    0px 0px 0px 3px var(--c-bg),
+  box-shadow: 0px 0px 0px 3px var(--c-bg),
     0px 0px 0px 6px var(--color-blue-paler);
 }
 
@@ -236,7 +293,7 @@ onMounted(() => {
   margin: 0;
   margin-top: auto;
   margin-bottom: 3px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 22px;
   line-height: 130%;
   font-weight: 500;
@@ -264,12 +321,9 @@ onMounted(() => {
   outline: none;
 }
 
-
-
 .slide__link:hover,
 .slide__link:focus-visible {
-  box-shadow:
-    0px 0px 0px 3px var(--c-medium-bg),
+  box-shadow: 0px 0px 0px 3px var(--c-medium-bg),
     0px 0px 0px 6px var(--c-accent);
 }
 
