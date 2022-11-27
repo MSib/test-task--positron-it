@@ -226,10 +226,18 @@ function sendOrder() {
           <button
             @click="sendOrder()"
             class="summary-cart__checkout"
-            :disabled="store.getters.totalProductsPiece <= 0"
+            :class="{ 'summary-cart__checkout--spinner': store.state.spinner }"
+            :disabled="
+              store.getters.totalProductsPiece <= 0 || store.state.spinner
+            "
             type="button"
           >
             Оформить заказ
+            <span
+              v-if="store.state.spinner"
+              class="summary-cart__checkout-spinner"
+              >🌀</span
+            >
           </button>
           <button
             class="summary-cart__buy-in-one-click"
@@ -816,6 +824,29 @@ function sendOrder() {
 .summary-cart__buy-in-one-click:focus-visible {
   box-shadow: 0px 0px 0px 3px var(--c-medium-bg),
     0px 0px 0px 6px var(--c-accent);
+}
+
+.summary-cart__checkout--spinner:disabled {
+  cursor: progress;
+}
+
+.summary-cart__checkout-spinner {
+  display: inline-block;
+  margin-left: 10px;
+  animation-duration: 0.8s;
+  animation-name: spinner;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spinner {
+  from {
+    transform: scale(1, -1) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1, -1) rotate(-360deg);
+  }
 }
 
 .summary-cart__buy-in-one-click {

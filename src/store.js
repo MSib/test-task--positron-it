@@ -1,9 +1,11 @@
 import { createStore } from 'vuex'
 
 const state = {
-  url: 'http://localhost',
+  url: 'http://localhost:3030',
   cartProducts: [],
   installation: false,
+  spinner: false,
+  modal: null,
 }
 
 const mutations = {
@@ -40,38 +42,65 @@ const mutations = {
   toggleInstallation(state) {
     state.installation = !state.installation
   },
+
+  closeModal(state) {
+    state.modal = null
+  },
 }
 
 const actions = {
   sendOrder(ctx) {
-    const arr = ctx.state.cartProducts.reduce(
-      (acc, item) =>
-        item.quantity > 0
-          ? [
-              ...acc,
-              {
-                id: item.id,
-                quantity: item.quantity,
-              },
-            ]
-          : [...acc],
-      []
-    )
     const order = {
-      items: arr,
+      items: ctx.state.cartProducts.reduce(
+        (acc, item) =>
+          item.quantity > 0
+            ? [
+                ...acc,
+                {
+                  id: item.id,
+                  quantity: item.quantity,
+                },
+              ]
+            : [...acc],
+        []
+      ),
       installation: ctx.state.installation,
+      fakeError: null, // null | 403 | 404 | 500 | 502 | 503 | 504
     }
 
+    ctx.state.spinner = true
     fetch(ctx.state.url, {
       method: 'POST',
       body: JSON.stringify(order),
       headers: {
-        'Content-type': 'application/json; charset=UTF-8',
+        Accept: '*/*',
+        'Content-Type': 'application/json',
       },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        if (data.error) {
+          ctx.state.modal = {
+            message: data.message,
+            error: data.error,
+          }
+        } else {
+          ctx.state.modal = {
+            message: data.message,
+            error: false,
+          }
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+        ctx.state.modal = {
+          message:
+            'Произошла неизвестная ошибка. Повторите оформление заказа',
+          error: true,
+        }
+      })
+      .finally(() => {
+        ctx.state.spinner = false
       })
   },
 }
